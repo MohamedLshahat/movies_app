@@ -2,15 +2,17 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:movies/api_constant.dart';
-import 'package:movies/movie_item.dart';
-import 'package:movies/slider_popular.dart';
+import 'package:movies/home_tab/slider_popular.dart';
 
-class HomeScreen extends StatefulWidget {
+import 'movie_item.dart';
+
+class HomeTab extends StatefulWidget {
+
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeTab> createState() => _HomeTabState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeTabState extends State<HomeTab> {
   List<Map<String , dynamic >>popularList =[];
   List<Map<String , dynamic >>popularEgyList =[];
   List<Map<String , dynamic >>upComingList =[];
@@ -124,41 +126,39 @@ class _HomeScreenState extends State<HomeScreen> {
                              selectCountry = int.parse(value.toString());
                            });
                          },
-                           items: [
+                           items: const [
                              DropdownMenuItem(
+                                 value: 1
+                               ,
                                  child: Text('USA',style: TextStyle(
-                                     fontSize: 16,color: Colors.white)),
-                               value: 1
-                               ,),
+                                     fontSize: 16,color: Colors.white)),),
                              DropdownMenuItem(
+                               value: 2,
                                child: Text('Egypt',style: TextStyle(
                                    fontSize: 16,color: Colors.white)),
-                               value: 2,
                              ),
 
                            ],
                            ),
                        //Icon(Icons.arrow_drop_down_sharp,color: Colors.white,size: 25,),
-                       SizedBox(width: 3,),
+                       const SizedBox(width: 3,),
                      ],
                    ),
                  )
                ],
              ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               SliderPopular(listMovie: popularList, functionSelected: popularUSA),  /// CarouselSlider
-              SizedBox(height: 17,),
-              Text('New Relases',style: TextStyle(fontSize: 25,color: Colors.white),),
-              SizedBox(height: 17,),
+              const SizedBox(height: 17,),
+              const Text('New Relases',style: TextStyle(fontSize: 25,color: Colors.white),),
+              const SizedBox(height: 17,),
               MovieItem(futureFunction: upComingUsa , listMovie: upComingList),
-              SizedBox(height: 17,),
-              Text('Recomended',style: TextStyle(fontSize: 25,color: Colors.white),),
-              SizedBox(height: 17,),
+              const SizedBox(height: 17,),
+              const Text('Recomended',style: TextStyle(fontSize: 25,color: Colors.white),),
+              const SizedBox(height: 17,),
               MovieItem(futureFunction: topRatedUSA , listMovie: topRatedList),
-              SizedBox(height: 17,),
-              Text('Other',style: TextStyle(fontSize: 25,color: Colors.white),),
-              SizedBox(height: 17,),
-              MovieItem(futureFunction: popularEgypt , listMovie: popularEgyList),
+              const SizedBox(height: 17,),
+
 
             ],
           )

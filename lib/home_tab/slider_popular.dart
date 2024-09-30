@@ -7,7 +7,7 @@ class SliderPopular extends StatelessWidget {
   List listMovie ;
 
 
-  SliderPopular({required this.listMovie , required this.functionSelected});
+  SliderPopular({super.key, required this.listMovie , required this.functionSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +39,13 @@ class SliderPopular extends StatelessWidget {
               options: CarouselOptions(
                   viewportFraction: 1 ,
                   autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayInterval: const Duration(seconds: 3),
                   height: MediaQuery.of(context).size.height*.3
               ));
         }else{
-          return Container(
+          return SizedBox(
             height: MediaQuery.of(context).size.height*.3,
-            child: Center(
+            child: const Center(
                 child: CircularProgressIndicator(
                   color: Colors.yellow,
                 )),
